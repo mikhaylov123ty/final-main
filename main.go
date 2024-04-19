@@ -104,16 +104,6 @@ func main() {
 	}
 	defer db.Close()
 
-	//init table in file
-	db.Exec("CREATE TABLE parcel (" +
-		"number INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-		"client INTEGER NOT NULL," +
-		"status VARCHAR NOT NULL," +
-		"address VARCHAR NOT NULL," +
-		"created_at TEXT NOT NULL" +
-		")" +
-		";")
-
 	store := NewParcelStore(db)
 	service := NewParcelService(store)
 
